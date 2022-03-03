@@ -2,7 +2,7 @@
 Heroku是一个支持多种编程语言的云平台即服务。简单理解就是可以免费部署docker容器并且可以开放web服务到互联网.下面介绍操作步骤.
 
 - 首先注册Heroku账号，点击通过 [https://dashboard.heroku.com](https://dashboard.heroku.com/) 注册一个账号 (推荐使用gmail)
-- 注册成功以后登录，登录以后点击 [部署链接](https://dashboard.heroku.com/new?template=https://github.com/FunnyWolf/nginx-proxy-heroku),
+- 注册成功以后登录，登录以后点击 [部署链接](https://dashboard.heroku.com/new?template=https://github.com/zhuwen/nginx-proxy-heroku),
 - app名称填写为 `mydiydomain` (可自定义,名称为后续域名前缀)，TARGET环境变量填写为C2的handler地址
 
 ![image.png](https://cdn.nlark.com/yuque/0/2020/png/159259/1603771065455-e03973a0-8763-4402-8b92-db358f8d0b1f.png#align=left&display=inline&height=488&margin=%5Bobject%20Object%5D&name=image.png&originHeight=976&originWidth=1224&size=76155&status=done&style=none&width=612)
