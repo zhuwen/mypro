@@ -20,7 +20,7 @@ http {
       gzip_vary on;
       gzip_disable "MSIE [1-6]\.";
       location / {
-        proxy_pass  "$TARGET";
+        proxy_pass  https://$host$request_uri; #"$TARGET"
       }
       error_page   500 502 503 504  /50x.html;
       location = /50x.html {
