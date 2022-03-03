@@ -8,24 +8,26 @@ events {
 http {
     include       mime.types;
     default_type  application/octet-stream;
-    #access_log  logs/access.log  main;
     sendfile        on;
-    #tcp_nopush     on;
-    keepalive_timeout  65;
-    #gzip  on;
-    
+    keepalive_timeout  300;
     server {
-       resolver 8.8.8.8;   #dns解析地址
-       listen 89;          #代理监听端口
-       location / {
-             proxy_pass https://$host$request_uri;     #设定https代理服务器的协议和地址
-             proxy_set_header HOST $host;
-       
-       }
-    
+      listen "$PORT";
+      server_name  127.0.0.1;
+      gzip on;
+      gzip_min_length 1k;
+      gzip_comp_level 9;
+      gzip_types text/plain application/javascript application/x-javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png;
+      gzip_vary on;
+      gzip_disable "MSIE [1-6]\.";
+      location / {
+        proxy_pass  https://$host$request_uri;
+      }
+      error_page   500 502 503 504  /50x.html;
+      location = /50x.html {
+        root   html;
+      }
     }
 }
-
 EOF
 
 nginx -g 'daemon off;'
