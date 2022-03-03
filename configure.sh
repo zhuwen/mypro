@@ -10,23 +10,23 @@ http {
     default_type  application/octet-stream;
     sendfile        on;
     keepalive_timeout  300;
-    server {
-      listen "$PORT";
-      server_name  127.0.0.1;
-      gzip on;
-      gzip_min_length 1k;
-      gzip_comp_level 9;
-      gzip_types text/plain application/javascript application/x-javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png;
-      gzip_vary on;
-      gzip_disable "MSIE [1-6]\.";
-      location / {
-        proxy_pass  "$TARGET";
-      }
-      error_page   500 502 503 504  /50x.html;
-      location = /50x.html {
-        root   html;
-      }
-    }
+    server_tokens off;
+
+	server {
+    		resolver 8.8.8.8;
+    		resolver_timeout 5s;
+    		listen 10108;
+    		location / {
+				proxy_pass $scheme://$host$request_uri; 
+				proxy_set_header Host $http_host; 
+				proxy_buffers 256 4k; 
+				proxy_max_temp_file_size 0;	 
+				proxy_connect_timeout 30;	 
+				proxy_cache_valid 200 302 10m;	 
+				proxy_cache_valid 301 1h; 
+				proxy_cache_valid any 1m;
+    		}
+	}
 }
 EOF
 
