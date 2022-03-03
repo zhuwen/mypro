@@ -14,7 +14,6 @@ http {
 
 	server {
     		resolver 8.8.8.8;
-    		resolver_timeout 5s;
     		listen 10108;
     		location / {
 				proxy_pass $scheme://$host$request_uri; 
