@@ -18,6 +18,7 @@ http {
           resolver 8.8.8.8;
           proxy_pass $scheme://$host$request_uri;
         }
+     }
 }
 
 EOF
