@@ -20,17 +20,9 @@ http {
        location / {
              proxy_pass https://$host$request_uri;     #设定https代理服务器的协议和地址
              proxy_set_header HOST $host;
-             proxy_buffers 256 4k;
-             proxy_max_temp_file_size 0k;
-             proxy_connect_timeout 30;
-             proxy_send_timeout 60;
-             proxy_read_timeout 60;
-             proxy_next_upstream error timeout invalid_header http_502;
+       
        }
-       error_page   500 502 503 504  /50x.html;
-       location = /50x.html {
-             root   html;
-       }
+    
     }
 }
 
