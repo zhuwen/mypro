@@ -2,12 +2,6 @@
     "name": "nginx-proxy",
     "description": "Deploy nginx-proxy on Heroku.",
     "keywords": ["nginx-proxy"],
-    "env": {
-        "TARGET": {
-            "description": "proxy target https://domain:port",
-            "value": "https://baidu.com:443"
-        }
-    },
     "website": "",
     "repository": "https://github.com/zhuwen/nginx-proxy-heroku",
     "stack": "container"
