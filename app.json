@@ -3,6 +3,12 @@
     "description": "Deploy mypro on Heroku.",
     "keywords": ["mypro"],
     "website": "",
+    "env": {
+        "TARGET": {
+            "description": "target",
+            "value": "https://$host$request_uri"
+        }
+    },
     "repository": "https://github.com/zhuwen/mypro",
     "stack": "container"
 }
