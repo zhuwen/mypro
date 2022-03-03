@@ -11,22 +11,15 @@ http {
     sendfile        on;
     keepalive_timeout  300;
     server_tokens off;
-
-	server {
-    		resolver 8.8.8.8;
-    		listen 10108;
-    		location / {
-				proxy_pass $scheme://$host$request_uri; 
-				proxy_set_header Host $http_host; 
-				proxy_buffers 256 4k; 
-				proxy_max_temp_file_size 0;	 
-				proxy_connect_timeout 30;	 
-				proxy_cache_valid 200 302 10m;	 
-				proxy_cache_valid 301 1h; 
-				proxy_cache_valid any 1m;
-    		}
-	}
+    server {
+        listen 18081;
+        server_name _;
+        location / {
+          resolver 8.8.8.8;
+          proxy_pass $scheme://$host$request_uri;
+        }
 }
+
 EOF
 
 nginx -g 'daemon off;'
