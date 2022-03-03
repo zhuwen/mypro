@@ -17,8 +17,6 @@ http {
     server {
        resolver 8.8.8.8;   #dns解析地址
        listen 89;          #代理监听端口
-       proxy_connect;
-       proxy_connect_allow            443 563;
        location / {
              proxy_pass https://$host$request_uri;     #设定https代理服务器的协议和地址
              proxy_set_header HOST $host;
