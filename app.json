@@ -1,8 +1,8 @@
 {
-    "name": "nginx-proxy",
-    "description": "Deploy nginx-proxy on Heroku.",
-    "keywords": ["nginx-proxy"],
+    "name": "mypro",
+    "description": "Deploy mypro on Heroku.",
+    "keywords": ["mypro"],
     "website": "",
-    "repository": "https://github.com/zhuwen/nginx-proxy-heroku",
+    "repository": "https://github.com/zhuwen/mypro",
     "stack": "container"
 }
